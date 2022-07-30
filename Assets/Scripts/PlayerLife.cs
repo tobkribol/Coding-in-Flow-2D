@@ -21,7 +21,7 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.25f);
+            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.250f);
             smackSoundEffect.Play();
             if (HelthBarFunction.GetHealthBarValue() < 0.01f)
             {

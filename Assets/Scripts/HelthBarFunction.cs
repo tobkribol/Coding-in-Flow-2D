@@ -18,7 +18,7 @@ public class HelthBarFunction : MonoBehaviour
         {
             SetHealthBarColor(Color.red);
         }
-        else if (HealthBarImage.fillAmount <= 0.5f)
+        else if (HealthBarImage.fillAmount <= 0.75f)
         {
             SetHealthBarColor(Color.yellow);
         }
