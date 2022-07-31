@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ItemCollector : MonoBehaviour
 {
-    private int cherries = 0;
-    private int melon = 0;
+    public int cherries = 0;
+    public int melon = 0;
     private Animator anim;
 
     [SerializeField] private Text cherriesText;
@@ -18,6 +19,12 @@ public class ItemCollector : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        cherries = PlayerPrefs.GetInt("cherries");
+        cherriesText.text = "Cherries: " + cherries;
+        melon = PlayerPrefs.GetInt("melon");
+        melonText.text = "Melon: " + melon;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +35,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             cherries++;
             cherriesText.text = "Cherries: " + cherries;
-
+            PlayerPrefs.SetInt("cherries", cherries);
         }
 
         if (collision.gameObject.CompareTag("Melon"))
@@ -37,6 +44,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             melon++;
             melonText.text = "Melon: " + melon;
+            PlayerPrefs.SetInt("melon", melon);
 
         }
     }

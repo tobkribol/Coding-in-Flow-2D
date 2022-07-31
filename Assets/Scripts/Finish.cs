@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     private AudioSource finishSound;
+    //private ItemCollector itemCollector;    
 
     private bool levelCompleted = false;
 
@@ -13,6 +14,7 @@ public class Finish : MonoBehaviour
     void Start()
     {
         finishSound = GetComponent<AudioSource>();
+        //itemCollector = GetComponent<ItemCollector>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,8 +22,11 @@ public class Finish : MonoBehaviour
         if (collision.gameObject.name == "Player" && !levelCompleted)
         {
             finishSound.Play();
+            //Debug.Log(itemCollector.cherries);
+            //PlayerPrefs.SetInt("cherries", itemCollector.cherries);
             levelCompleted = true;
             Invoke("CompleteLevel", 2f);
+
         }
     }
 
