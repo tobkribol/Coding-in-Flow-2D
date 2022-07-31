@@ -4291,7 +4291,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5867474f8e7b6ef4297c5221113930aa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.221
   m_Pitch: 1
@@ -88090,8 +88090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef75266137932d45ad7bab2098d7001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherries: 0
-  melon: 0
   cherriesText: {fileID: 0}
   melonText: {fileID: 0}
   collectionSoundEffect: {fileID: 0}

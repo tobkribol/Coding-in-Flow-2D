@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemCollector : MonoBehaviour
 {
-    public int cherries = 0;
-    public int melon = 0;
+
     private Animator anim;
 
     [SerializeField] private Text cherriesText;
@@ -16,14 +15,15 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private AudioSource collection2SoundEffect;
     [SerializeField] private Animation collectionAnimation;
 
+    
     private void Start()
     {
         anim = GetComponent<Animator>();
-        cherries = PlayerPrefs.GetInt("cherries");
-        cherriesText.text = "Cherries: " + cherries;
-        melon = PlayerPrefs.GetInt("melon");
-        melonText.text = "Melon: " + melon;
-
+        Items.cherries = PlayerPrefs.GetInt("cherries");
+        cherriesText.text = "Cherries: " + Items.cherries;
+        Items.melon = PlayerPrefs.GetInt("melon");
+        melonText.text = "Melon: " + Items.melon;
+        Debug.Log(Items.cherries + " and " + Items.melon);
 
     }
 
@@ -33,19 +33,16 @@ public class ItemCollector : MonoBehaviour
         {
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
-            cherries++;
-            cherriesText.text = "Cherries: " + cherries;
-            PlayerPrefs.SetInt("cherries", cherries);
+            Items.cherries++;
+            cherriesText.text = "Cherries: " + Items.cherries;
         }
 
         if (collision.gameObject.CompareTag("Melon"))
         {
             collection2SoundEffect.Play();
             Destroy(collision.gameObject);
-            melon++;
-            melonText.text = "Melon: " + melon;
-            PlayerPrefs.SetInt("melon", melon);
-
+            Items.melon++;
+            melonText.text = "Melon: " + Items.melon;
         }
     }
 }

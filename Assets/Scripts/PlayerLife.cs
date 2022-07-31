@@ -11,18 +11,34 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private AudioSource deathSoundEffect;
     [SerializeField] private AudioSource smackSoundEffect;
 
+    private void Awake()
+    {
+
+        //HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
+        //PlayerStats.health = PlayerPrefs.GetFloat("health");
+        //Debug.Log(PlayerStats.health);
+        Debug.Log(HelthBarFunction.GetHealthBarValue());
+        HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
+        Debug.Log(HelthBarFunction.GetHealthBarValue());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.250f);
+
+            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.25f);
+            Debug.Log(HelthBarFunction.GetHealthBarValue());
+            //PlayerStats.health = HelthBarFunction.GetHealthBarValue();
+
             smackSoundEffect.Play();
+
             if (HelthBarFunction.GetHealthBarValue() < 0.01f)
             {
                 Die();
@@ -34,7 +50,9 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
         deathSoundEffect.Play();
-        rb.bodyType = RigidbodyType2D.Static; 
+        //HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
+        //PlayerStats.health = HelthBarFunction.GetHealthBarValue();
+        rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
 
     }

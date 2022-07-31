@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HelthBarFunction : MonoBehaviour
 {
-
     private static Image HealthBarImage;
     /// <summary>
     /// Sets the health bar value
@@ -13,12 +12,14 @@ public class HelthBarFunction : MonoBehaviour
     /// <param name="value">should be between 0 to 1</param>
     public static void SetHealthBarValue(float value)
     {
+        //Debug.Log(HealthBarImage.fillAmount);
         HealthBarImage.fillAmount = value;
-        if (HealthBarImage.fillAmount <= 0.25f)
+
+        if (GetHealthBarValue() <= 0.25f)
         {
             SetHealthBarColor(Color.red);
         }
-        else if (HealthBarImage.fillAmount <= 0.75f)
+        else if (GetHealthBarValue() <= 0.75f)
         {
             SetHealthBarColor(Color.yellow);
         }
@@ -47,6 +48,7 @@ public class HelthBarFunction : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        
         HealthBarImage = GetComponent<Image>();
     }
 }
