@@ -19,7 +19,7 @@ public class ItemCollector : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        Items.cherries = PlayerPrefs.GetInt("cherries");
+        Items.cherries = PlayerPrefs.GetInt("cherries")
         cherriesText.text = "Cherries: " + Items.cherries;
         Items.melon = PlayerPrefs.GetInt("melon");
         melonText.text = "Melon: " + Items.melon;

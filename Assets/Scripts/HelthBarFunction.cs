@@ -19,10 +19,12 @@ public class HelthBarFunction : MonoBehaviour
         {
             SetHealthBarColor(Color.red);
         }
+
         else if (GetHealthBarValue() <= 0.75f)
         {
             SetHealthBarColor(Color.yellow);
         }
+
         else
         {
             SetHealthBarColor(Color.green);

@@ -33,7 +33,7 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap"))
         {
 
-            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.25f);
+            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.20f);
             Debug.Log(HelthBarFunction.GetHealthBarValue());
             //PlayerStats.health = HelthBarFunction.GetHealthBarValue();
 
