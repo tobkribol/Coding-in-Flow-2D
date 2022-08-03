@@ -48,8 +48,17 @@ public class PlayerMovment : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            shootSoundEffect.Play();
-            Instantiate(ProjectilePrefab,LaunchOffset.position, transform.rotation);
+            if (Items.cherries == 0)
+            {
+                return;
+            }
+            else
+            {
+                Items.cherries--;
+                shootSoundEffect.Play();
+                Instantiate(ProjectilePrefab,LaunchOffset.position, transform.rotation);
+            }
+                
         }
     }
 

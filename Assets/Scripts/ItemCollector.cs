@@ -19,8 +19,9 @@ public class ItemCollector : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        Items.cherries = PlayerPrefs.GetInt("cherries")
+        Items.cherries = PlayerPrefs.GetInt("cherries");
         cherriesText.text = "Cherries: " + Items.cherries;
+
         Items.melon = PlayerPrefs.GetInt("melon");
         melonText.text = "Melon: " + Items.melon;
         Debug.Log(Items.cherries + " and " + Items.melon);
@@ -33,7 +34,7 @@ public class ItemCollector : MonoBehaviour
         {
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
-            Items.cherries++;
+            Items.cherries += 2;
             cherriesText.text = "Cherries: " + Items.cherries;
         }
 
@@ -41,6 +42,7 @@ public class ItemCollector : MonoBehaviour
         {
             collection2SoundEffect.Play();
             Destroy(collision.gameObject);
+            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() + 0.20f);
             Items.melon++;
             melonText.text = "Melon: " + Items.melon;
         }

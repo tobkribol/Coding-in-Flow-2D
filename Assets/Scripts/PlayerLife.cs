@@ -25,6 +25,8 @@ public class PlayerLife : MonoBehaviour
         //Debug.Log(PlayerStats.health);
         Debug.Log(HelthBarFunction.GetHealthBarValue());
         HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
+        PlayerStats.health = PlayerPrefs.GetFloat("health");
+
         Debug.Log(HelthBarFunction.GetHealthBarValue());
     }
 
@@ -53,6 +55,7 @@ public class PlayerLife : MonoBehaviour
         //HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
         //PlayerStats.health = HelthBarFunction.GetHealthBarValue();
         rb.bodyType = RigidbodyType2D.Static;
+        Items.cherries = 0;
         anim.SetTrigger("death");
 
     }
