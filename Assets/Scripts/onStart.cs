@@ -11,6 +11,7 @@ public class onStart : MonoBehaviour
         Items.Init(0, 0);
         PlayerStats.Init(1.0f);
         HelthBarFunction.SetHealthBarValue(1.0f);
-        //Debug.Log("awake: " + Items.cherries + " and " + Items.melon);
+        Debug.Log("Health start: " + HelthBarFunction.GetHealthBarValue());
+        Debug.Log("Items start: " + Items.cherries + " and " + Items.melon);
     }
 }

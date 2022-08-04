@@ -16,6 +16,7 @@ public class PlayerLife : MonoBehaviour
 
         //HelthBarFunction.SetHealthBarValue(PlayerPrefs.GetFloat("health"));
     }
+    
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap"))
         {
 
-            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.20f);
+            HelthBarFunction.SetHealthBarValue(HelthBarFunction.GetHealthBarValue() - 0.25f);
             Debug.Log(HelthBarFunction.GetHealthBarValue());
             //PlayerStats.health = HelthBarFunction.GetHealthBarValue();
 
@@ -45,10 +46,16 @@ public class PlayerLife : MonoBehaviour
             {
                 Die();
             }
-            
+        }
+
+        if (collision.gameObject.CompareTag("TrapInstant"))
+        {
+            HelthBarFunction.SetHealthBarValue(0.0f);
+            smackSoundEffect.Play();
+            Die();
+
         }
     }
-
     private void Die()
     {
         deathSoundEffect.Play();
@@ -59,7 +66,6 @@ public class PlayerLife : MonoBehaviour
         anim.SetTrigger("death");
 
     }
-
     private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
